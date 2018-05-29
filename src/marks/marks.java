@@ -182,22 +182,18 @@ public class marks extends javax.swing.JFrame {
     }
     private int classMaximum () {
         int max = Collections.max(marks);
-        return max;
+        return max;   // maximum method
     }
     private int classMinimum () {
-        int min = Collections.min(marks);
+        int min = Collections.min(marks); // minimum method
         return min;
     }
-    private int gradeLevel() {
-        int [] grade = new int [5]; 
-        
-            for (int i = 0; i < marks.size(); i++) {
-                grade[i] += marks.size();
-            }
-        return grade[0]; 
-        
+   /* private int gradeLevel() {
+    attempt: int [] grade = new int[5]
+    for (int i = 0; i < marks.size(); i++) {
+    grade[i] += marks.get();  
     }
-   
+   */
     private void exitProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitProgramActionPerformed
         System.exit(0); // Exit command
     }//GEN-LAST:event_exitProgramActionPerformed
@@ -236,15 +232,8 @@ public class marks extends javax.swing.JFrame {
     private void analyzeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analyzeButtonActionPerformed
         double average = classAverage() / marks.size();
         DecimalFormat x = new DecimalFormat ("##.#");
-        int level = gradeLevel();
-        if (level < 50) {
-            
-        }
-        if (gradeLevel() == 0);
-        int max = classMaximum();
-        int min = classMinimum();
-        int range = max - min;
-        gradeBox.setText("Class Average: " + x.format (average) + "\n" + "Maximum Grade: " + max + "\n" + "Minimum Grade: " + min + "\n" + "Range: " + range);
+        int range = classMaximum() - classMinimum();
+        gradeBox.setText("Class Average: " +x.format (average) + "%" + "\n" + "Maximum Mark: " + classMaximum() + "\n" + "Minimum Mark: " + classMinimum() + "\n" + "Range: " + range);
     }//GEN-LAST:event_analyzeButtonActionPerformed
 
     private void restartProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restartProgramActionPerformed
